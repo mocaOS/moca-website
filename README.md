@@ -1,15 +1,65 @@
-# Museum of Crypto Art — museumofcryptoart.com
+<div align="center">
+  <img src="misc/social.jpg" alt="Museum of Crypto Art" />
 
-The public website of the **[Museum of Crypto Art](https://museumofcryptoart.com)** (MOCA): browse the permanent collections, build and walk immersive 3D exhibitions, study the writings and crypto-art timeline, and talk to the **Library** — a live, anonymous chat over MOCA's **[Cortex](https://cortex.eco)** knowledge engine.
+  <h1>Museum of Crypto Art</h1>
 
-This repository is the culmination of years of MOCA tooling, extracted into a standalone, self-contained app. Built with **Next.js 16** (App Router, standalone output), **React 19**, **Tailwind CSS 4**, **react-three-fiber** for 3D, and **wagmi/viem + Reown AppKit** for web3.
+  <p><strong>The open-source museum — collections, immersive 3D exhibitions, and an AI-powered Library.</strong></p>
+
+  <p>
+    <a href="https://museumofcryptoart.com">museumofcryptoart.com</a> ·
+    <a href="https://museumofcryptoart.com/library">The Library</a> ·
+    <a href="https://cortex.eco">Cortex</a> ·
+    <a href="https://discord.gg/Rs7wxUTrWV">Discord</a> ·
+    <a href="https://museumofcryptoart.com/manifesto">Manifesto</a>
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" alt="Next.js 16" />
+    <img src="https://img.shields.io/badge/React-19-087ea4?logo=react&logoColor=white" alt="React 19" />
+    <img src="https://img.shields.io/badge/Three.js-r180-000000?logo=three.js" alt="Three.js" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
+    <img src="https://img.shields.io/badge/Docker-standalone-2496ed?logo=docker&logoColor=white" alt="Docker" />
+  </p>
+</div>
+
+---
+
+At the Museum of Crypto Art (MOCA), we've reimagined what it means to be a Museum, bringing immersive art exhibitions, free tooling and software, high-level scholarship, and an engaging community atmosphere to a purely-online museum. MOCA is an industry leader in adapting new technologies —metaverse, blockchain, and AI— for practical application in a cultural institution.
+
+We, however, envision a broader future, in which *any* cultural institution can deploy its own AI-powered museum. Therein, visitors can interact with curated and immersive exhibits alongside one another and alongside personalized AI agents, acting as curators and tour guides, each personalized to fit a given institution's vibe.
+
+Welcome to our open-source museum, and the unprecedented possibilities it presents for cultural institutions forever.
+
+Our mission, put simply: Provide a fully-deployable museum codebase where any enthusiast, collector, or cultural body can summon a top-tier curatorial, exhibitive, architectural, and artistic museum experience with ease. We're not just sharing software; we're democratizing access to a new paradigm in art experience.
+
+**This repository is that museum** — the application serving [museumofcryptoart.com](https://museumofcryptoart.com). Rebuilt from the ground up in 2026 as a standalone Next.js experience, it is the culmination of years of MOCA tooling: the collections, the 3D exhibition world builder, the metaverse bridge into [Hyperfy](https://github.com/hyperfy-xyz/hyperfy) worlds, and **The Library** — our AI knowledge engine, powered by **[Cortex](https://cortex.eco)** ([docs.cortex.eco](https://docs.cortex.eco)).
+
+## What the museum offers
+
+1. **Art Collections** — The permanent collections, served live from MOCA's CMS backend and rendered server-side: masonry browsing, search and filtering, lightboxes, and curatorial essays. Point the app at your own backend and it displays *your* configured art — metadata and media alike (images, video, 3D).
+
+2. **The Library** — A public, AI-powered knowledge engine for crypto art, the collection, and Web3 culture — streaming answers with source citations, an entity/relationship knowledge graph, and a Deep Research mode. The Library is powered by **[Cortex](https://cortex.eco)**, our agentic RAG platform: documents are ingested into Cortex, which builds knowledge graphs for high-end retrieval and exposes a streaming chat API. Cortex runs as its own service ([code: `mocaOS/cortex-app`](https://github.com/mocaOS/cortex-app) · [docs: docs.cortex.eco](https://docs.cortex.eco)); this app talks to it server-side and never exposes keys to the browser. The community feeds it: web3 visitors submit documents and websites, admins review, and approved knowledge flows into the Library's **Collective** collection.
+
+3. **MOCA ROOMs & the world builder** — Originally launched in 2022, this [modular architecture](https://hackmd.io/@reneil1337/moca) enables the exhibition and transportation of entire art exhibitions across immersive worlds. `/rooms` renders every ROOM as an optimized 3D scene; `/rooms/world` is the **exhibition world builder** — place ROOMs on a grid with an RTS-style camera, hang artworks from the collections (or import a wallet's legacy Multipass curations) onto wall slots, and save named exhibits. Exhibitions then **spawn directly into self-hosted [Hyperfy](https://github.com/hyperfy-xyz/hyperfy) worlds** — walkable, solid rooms with distance-aware artwork LOD, proximity-gated video works, and an in-world slot editor for scene admins.
+
+4. **Art DeCC0s as museum guides** — [Art DeCC0s](https://opensea.io/collection/art-decc0s) are 10,000 uniquely generated CC0 PFPs, and the face of agentic capabilities woven throughout the stack. In this app they come alive as the **museum guide**: an agentic VRM avatar spawned with every Hyperfy exhibition that visitors talk to in free-form chat — spatially aware of the rooms and the artworks around it, voiced via TTS, and backed by the Library for deep questions. Pick any DeCC0 persona (or bring your own SOUL.md) and download the guide as a drag-droppable `.hyp` app.
+
+### Deploy your own museum
+
+This frontend is fully self-contained: clone, `npm install`, `npm run dev` — or ship the Docker image. It runs against MOCA's public backends out of the box and every integration degrades gracefully when unconfigured, so you can start from zero keys and light features up one env var at a time. The full setup, environment, and deployment reference lives below.
+
+This is a collaborative experiment, and we're building the scaffolding in public. If you're eager to dive deeper, contribute, or deploy your own museum, [hop into our Discord](https://discord.gg/Rs7wxUTrWV) — we'll guide you through the maze while we write the map.
+
+---
+
+# Technical reference
+
+Built with **Next.js 16** (App Router, standalone output), **React 19**, **Tailwind CSS 4**, **react-three-fiber** for 3D, and **wagmi/viem + Reown AppKit** for web3.
 
 - **Dev / container port:** `3331`
 - **Canonical site URL:** `https://museumofcryptoart.com`
 - **Library backend:** [Cortex](https://cortex.eco) — agentic RAG (knowledge graph + streaming chat), reached only server-side through this app's proxy. See [docs.cortex.eco](https://docs.cortex.eco).
 - **CMS:** Directus (collections, NFTs, rooms) — read live, server-side.
-
----
 
 ## What's inside
 
@@ -27,8 +77,6 @@ This repository is the culmination of years of MOCA tooling, extracted into a st
 | `/llms.txt` | Agent-first site map | Generated |
 
 The whole museum is **anonymous by default** — no accounts, no database. Web3 login (SIWE) exists only for community document submissions, the admin review queue, and the holder account view (holdings + personal Library API keys).
-
----
 
 ## Architecture
 
@@ -49,8 +97,6 @@ The whole museum is **anonymous by default** — no accounts, no database. Web3 
 - **3D pipeline** (`src/lib/museum/hyperfy/`, `/api/museum/model|texture`): room GLBs are recompressed on the fly (WebP textures, decoded geometry) and exhibition exports can be spawned into self-hosted Hyperfy v2 worlds — including an agentic, voice-enabled museum guide.
 - **No database.** Exhibits live in the visitor's localStorage; the submission review queue lives in Directus; personal Library keys live in Cortex's key store. The container is stateless.
 
----
-
 ## Getting started
 
 ### Prerequisites
@@ -67,8 +113,6 @@ npm run dev                # http://localhost:3331
 ```
 
 > The museum boots **without any keys** — collections, rooms, world builder, writings, and timeline all work. Each integration (Library chat, submissions, wallet holdings) simply reports "not configured" until its env is set.
-
----
 
 ## Environment variables
 
@@ -90,8 +134,6 @@ All secrets are **server-only, read at runtime**; only `NEXT_PUBLIC_*` values ar
 | `ETH_RPC_URL` / `POLYGON_RPC_URL` | JSON-RPC endpoints for $MOCA balances / staking reads (public fallbacks exist). |
 
 > **Never** prefix a secret with `NEXT_PUBLIC_`.
-
----
 
 ## Build & run (production)
 
@@ -124,15 +166,11 @@ docker run -p 3331:3331 --env-file .env moca-museum
 docker compose up -d --build
 ```
 
----
-
 ## Content management
 
 - **Collections, NFTs, rooms** are live from **Directus** — edit in the CMS, changes appear immediately.
 - **Writings, Timeline, Incubator** are static JSON under `src/content/` — edit and redeploy.
 - **Community submissions**: web3 users submit documents/URLs for the Library; whitelisted admins approve them at `/library/review`, which ingests them into the Cortex "Collective" collection.
-
----
 
 ## Project structure
 
@@ -168,8 +206,6 @@ src/
 scripts/                        # one-off utilities (room optimization, scrapers)
 ```
 
----
-
 ## Notes & caveats
 
 - **`openseauserdata.com` is shut down.** Affected artworks are revived via the media transform proxy; the raw URL is the fallback.
@@ -179,3 +215,22 @@ scripts/                        # one-off utilities (room optimization, scrapers
 ## Tech stack
 
 Next.js 16 · React 19 · TypeScript 5 · Tailwind CSS 4 · @react-three/fiber + drei + three.js · @directus/sdk · wagmi + viem + Reown AppKit · Moralis · gltf-transform + sharp (server-side GLB/texture optimization) · msgpackr (Hyperfy wire protocol) · react-markdown + remark-gfm · Docker (standalone output).
+
+## Links
+
+- **Museum**: [museumofcryptoart.com](https://museumofcryptoart.com)
+- **The Library / Cortex**: [cortex.eco](https://cortex.eco) · [docs.cortex.eco](https://docs.cortex.eco) · [`mocaOS/cortex-app`](https://github.com/mocaOS/cortex-app)
+- **MOCA tech stack (backend, agents, tooling)**: [`mocaOS/museum`](https://github.com/mocaOS/museum)
+- **Discord**: [discord.gg/Rs7wxUTrWV](https://discord.gg/Rs7wxUTrWV)
+
+## License
+
+© 2026 Museum of Crypto Art.
+
+---
+
+<div align="center">
+
+*"At its core, the Museum of Crypto Art (M○C△) challenges, creates conflict, provokes. M○C△ puts forward a broad representation of perspectives meant to upend our sense of who we are. It poses two questions: 'what is art?' and 'who decides?'"*
+
+</div>
