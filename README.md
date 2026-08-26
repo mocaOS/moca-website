@@ -19,6 +19,7 @@
     <img src="https://img.shields.io/badge/Three.js-r180-000000?logo=three.js" alt="Three.js" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
     <img src="https://img.shields.io/badge/Docker-standalone-2496ed?logo=docker&logoColor=white" alt="Docker" />
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-a3e635" alt="License: MIT" /></a>
   </p>
 </div>
 
@@ -223,9 +224,13 @@ Next.js 16 · React 19 · TypeScript 5 · Tailwind CSS 4 · @react-three/fiber +
 - **MOCA tech stack (backend, agents, tooling)**: [`mocaOS/museum`](https://github.com/mocaOS/museum)
 - **Discord**: [discord.gg/Rs7wxUTrWV](https://discord.gg/Rs7wxUTrWV)
 
-## License
+## License & notices
 
-© 2026 Museum of Crypto Art.
+The source code is released under the **[MIT License](LICENSE)** — © 2026 Museum of Crypto Art.
+
+- **Trademarks & brand assets.** The Museum of Crypto Art name, the M○C△ / MOCA wordmarks and logos, and the brand imagery in this repository are **not** covered by the MIT license and may not be used to represent or endorse your own deployment without permission. Fork the code, rebrand your museum.
+- **Fonts.** Inter and JetBrains Mono (`public/fonts/`) are distributed under the SIL Open Font License 1.1 — see [`public/fonts/LICENSE-Inter.txt`](public/fonts/LICENSE-Inter.txt) and [`public/fonts/LICENSE-JetBrainsMono.txt`](public/fonts/LICENSE-JetBrainsMono.txt).
+- **Wallet connect (Reown AppKit).** The wallet modal depends on Reown AppKit / WalletConnect, which since August 2025 ship under the [Reown Community License](https://github.com/reown-com/appkit/blob/main/LICENSE.md) (not open source: free below usage thresholds, commercial above). Their code is not part of this repository — you accept Reown's terms when installing dependencies. The museum runs fine without a `NEXT_PUBLIC_REOWN_PROJECT_ID` if you don't need wallet features.
 
 ---
 

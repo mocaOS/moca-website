@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Museum of Crypto Art — galleries, exhibitions, and the MOCA Library Cortex.",
   "dependencies": {
     "@directus/sdk": "^20.1.0",
