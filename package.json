@@ -1,0 +1,53 @@
+{
+  "name": "moca-museum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev -p 3331",
+    "build": "next build",
+    "start": "next start -p 3331",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Museum of Crypto Art — galleries, exhibitions, and the MOCA Library Cortex.",
+  "dependencies": {
+    "@directus/sdk": "^20.1.0",
+    "@gltf-transform/core": "^4.4.1",
+    "@gltf-transform/extensions": "^4.4.1",
+    "@gltf-transform/functions": "^4.4.1",
+    "@noble/hashes": "^2.2.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@reown/appkit": "^1.8.19",
+    "@reown/appkit-adapter-wagmi": "^1.8.19",
+    "@tanstack/react-query": "^5.62.0",
+    "@transform-in/sdk": "^1.0.2",
+    "draco3dgltf": "^1.5.7",
+    "moralis": "^2.27.2",
+    "msgpackr": "^2.0.4",
+    "next": "^16.1.7",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "sharp": "^0.35.3",
+    "three": "^0.180.0",
+    "three-mesh-bvh": "^0.8.3",
+    "viem": "^2.47.6",
+    "wagmi": "^3.6.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.180.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
