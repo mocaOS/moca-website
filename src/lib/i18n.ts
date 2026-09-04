@@ -51,6 +51,11 @@ const translations = {
     errorPrefix: "Error",
     requestCancelled: "Request was cancelled.",
     unknownError: "Unknown error",
+    // Backend answer-quality flags (refused / truncated on the done frame)
+    answerTruncated:
+      "This answer was cut short at the length limit. Ask again or narrow the question.",
+    answerRefused:
+      "This question was declined by the safety filter. Rephrase it as a plain question about the content.",
     rateLimited:
       "The system is handling a lot of requests right now. Please wait about {seconds} seconds and try again.",
     rateLimitedNoTime:
@@ -427,6 +432,11 @@ const translations = {
     errorPrefix: "Fehler",
     requestCancelled: "Anfrage wurde abgebrochen.",
     unknownError: "Unbekannter Fehler",
+    // Backend answer-quality flags (refused / truncated on the done frame)
+    answerTruncated:
+      "Diese Antwort wurde am Längenlimit abgeschnitten. Frag noch einmal oder grenze die Frage ein.",
+    answerRefused:
+      "Diese Frage wurde vom Sicherheitsfilter abgelehnt. Formuliere sie als einfache Frage zum Inhalt.",
     rateLimited:
       "Das System verarbeitet gerade viele Anfragen. Bitte warte etwa {seconds} Sekunden und versuch es dann erneut.",
     rateLimitedNoTime:

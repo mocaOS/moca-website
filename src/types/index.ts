@@ -62,6 +62,11 @@ export interface ChatMessage {
   retrieval?: string[];
   retrievalStats?: RetrievalStats;
   status?: StreamStatus;
+  // Backend answer-quality flags (2026-09-03+), read off the done frame: the
+  // answer was the prompt-injection safe refusal / the writer hit its
+  // output-token cap. Persisted with the session in localStorage.
+  refused?: boolean;
+  truncated?: boolean;
   isStreaming?: boolean;
 }
 

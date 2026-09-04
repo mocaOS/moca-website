@@ -200,6 +200,15 @@ get **507 Insufficient Storage** (Cortex free-disk guardrail, `MIN_FREE_DISK_MB`
 reviewer-facing messages. Production 5xx bodies are sanitized (generic message +
 `request_id`); don't parse specifics out of them — correlate via `X-Request-ID`.
 
+**Answer-quality flags (Cortex 2026-09-03+).** The `done` frame carries `refused: true`
+when the stream was the prompt-injection safe refusal (the refusal `content` frame
+carries it too) and `truncated: true` when the writer hit its output-token cap; the
+non-streaming `/api/ask` response has the same two fields top-level. `askQuestionStream`
+folds them into `onDone(flags)`, the library page stamps `refused`/`truncated` on the
+message (persisted with the session in localStorage), and `MessageBubble` shows a
+neutral notice under the answer. Older backends send no flag — `isRefusalText()`
+(`src/lib/answer-flags.ts`) matches the canned text as a fallback. Mirrors cortex-chat.
+
 ## Cortex analytics
 
 Optional static context block prepended to every backend request, server-side, for
