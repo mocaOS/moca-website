@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { ChatMessage, Source } from "@/types";
 import { t } from "@/lib/i18n";
 import { useLocale } from "@/lib/i18n-client";
+import { downloadMessageMarkdown } from "@/lib/exportMessage";
 import ThinkingIndicator from "./ThinkingIndicator";
 
 interface Props {
@@ -316,26 +317,43 @@ export default function MessageBubble({
             color: "var(--fg1)",
           }}
         >
-          {/* Copy answer — appears on hover/focus once the answer settled */}
+          {/* Copy / download answer — appear on hover/focus once the answer settled */}
           {!message.isStreaming && message.content && (
-            <button
-              onClick={handleCopy}
-              title={copied ? t("copied") : t("copyAnswer")}
-              aria-label={copied ? t("copied") : t("copyAnswer")}
-              className="absolute top-2 right-2 w-7 h-7 rounded-[var(--radius-sm)] flex items-center justify-center opacity-0 group-hover/answer:opacity-100 focus-visible:opacity-100 transition-all hover:bg-[var(--muted)]"
-              style={{ color: copied ? "var(--accent)" : "var(--fg3)" }}
-            >
-              {copied ? (
+            <div className="absolute top-2 right-2 flex gap-0.5 opacity-0 group-hover/answer:opacity-100 focus-within:opacity-100 pointer-coarse:opacity-100 transition-opacity">
+              <button
+                onClick={handleCopy}
+                title={copied ? t("copied") : t("copyAnswer")}
+                aria-label={copied ? t("copied") : t("copyAnswer")}
+                className="w-7 h-7 rounded-[var(--radius-sm)] flex items-center justify-center transition-colors hover:bg-[var(--muted)]"
+                style={{ color: copied ? "var(--accent)" : "var(--fg3)" }}
+              >
+                {copied ? (
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                )}
+              </button>
+              {/* Download the answer as a standalone .md (same section format as
+                  cortex-chat's transcript export, sources as footnotes). */}
+              <button
+                onClick={() => downloadMessageMarkdown(message)}
+                title={t("downloadMessage")}
+                aria-label={t("downloadMessage")}
+                className="w-7 h-7 rounded-[var(--radius-sm)] flex items-center justify-center transition-colors hover:bg-[var(--muted)]"
+                style={{ color: "var(--fg3)" }}
+              >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 6L9 17l-5-5" />
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M12 15V3" />
                 </svg>
-              ) : (
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                </svg>
-              )}
-            </button>
+              </button>
+            </div>
           )}
           {message.content ? (
             <div className="markdown-content">
@@ -443,7 +461,31 @@ export default function MessageBubble({
                 <path d="M12 8h.01" />
               </svg>
               <span>
-                {message.refused ? t("answerRefused") : t("answerTruncated")}
+                {message.refused ? (
+                  message.refusalSource === "heuristic" ||
+                  message.refusalSource === "classifier" ? (
+                    <>
+                      {/* Which safeguard fired — a bare deflection reads like
+                          "no data"; naming the guard tells the user the search
+                          never ran and a rephrase (or an admin) fixes it. */}
+                      <span
+                        className="font-mono uppercase text-[10.5px] tracking-[0.08em] mr-1.5"
+                        style={{ color: "var(--fg1)" }}
+                      >
+                        {t("promptGuardLabel")}
+                      </span>
+                      {message.refusalSource === "classifier"
+                        ? t("answerRefusedClassifier")
+                        : t("answerRefusedHeuristic")}
+                    </>
+                  ) : message.refusalSource === "model" ? (
+                    t("answerRefusedModel")
+                  ) : (
+                    t("answerRefused")
+                  )
+                ) : (
+                  t("answerTruncated")
+                )}
               </span>
             </div>
           )}

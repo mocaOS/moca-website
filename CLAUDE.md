@@ -208,6 +208,17 @@ folds them into `onDone(flags)`, the library page stamps `refused`/`truncated` o
 message (persisted with the session in localStorage), and `MessageBubble` shows a
 neutral notice under the answer. Older backends send no flag — `isRefusalText()`
 (`src/lib/answer-flags.ts`) matches the canned text as a fallback. Mirrors cortex-chat.
+**`refusal_source` (Cortex 2026-09-15+)** rides beside `refused` (`heuristic` = regex
+validator, `classifier` = prompt-guard model, `model` = the writer emitted the deflection
+itself) and is stamped as `refusalSource`; the notice then names the safeguard ("Prompt
+guard" mono label) and, for the classifier, says it may be a false positive — the guard
+sees only the bare question and flags some ordinary phrasings. Since that release the
+gates also run on the non-streaming `POST /api/ask`.
+
+**Answer actions.** Once an answer settles, hovering its card reveals **Copy** (prose
+without citation brackets) and **Download** (`src/lib/exportMessage.ts` — the answer as a
+standalone `.md`: role heading, content verbatim with `[src_N]` markers, numbered source
+footnotes; same section format as cortex-chat's transcript export).
 
 ## Cortex analytics
 

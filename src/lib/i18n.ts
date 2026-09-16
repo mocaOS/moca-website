@@ -39,6 +39,10 @@ const translations = {
     send: "Send",
     copyAnswer: "Copy answer",
     copied: "Copied",
+    downloadMessage: "Download as Markdown",
+    exportRoleUser: "You",
+    exportRoleAssistant: "Assistant",
+    exportSources: "Sources",
     confirmDelete: "Click again to delete",
     jumpToLatest: "Jump to latest",
     toggleSidebar: "Toggle sidebar",
@@ -56,6 +60,14 @@ const translations = {
       "This answer was cut short at the length limit. Ask again or narrow the question.",
     answerRefused:
       "This question was declined by the safety filter. Rephrase it as a plain question about the content.",
+    // refusal_source (backend 2026-09-15+): which safeguard fired
+    promptGuardLabel: "Prompt guard",
+    answerRefusedHeuristic:
+      "The prompt-injection safeguard blocked this question before any search ran because it matched an instruction-like pattern. Nothing was retrieved. Rephrase it as a plain question about the content.",
+    answerRefusedClassifier:
+      "The prompt-injection safeguard's classifier flagged this question and blocked it before any search ran. Nothing was retrieved. This can be a false positive. Rephrase the question, or ask an admin to tune the prompt guard.",
+    answerRefusedModel:
+      "The assistant declined this as an instruction-like request rather than a question about the content. Rephrase it as a plain question.",
     rateLimited:
       "The system is handling a lot of requests right now. Please wait about {seconds} seconds and try again.",
     rateLimitedNoTime:
@@ -420,6 +432,10 @@ const translations = {
     send: "Senden",
     copyAnswer: "Antwort kopieren",
     copied: "Kopiert",
+    downloadMessage: "Als Markdown herunterladen",
+    exportRoleUser: "Du",
+    exportRoleAssistant: "Assistent",
+    exportSources: "Quellen",
     confirmDelete: "Zum Löschen erneut klicken",
     jumpToLatest: "Zur neuesten Nachricht",
     toggleSidebar: "Seitenleiste umschalten",
@@ -437,6 +453,14 @@ const translations = {
       "Diese Antwort wurde am Längenlimit abgeschnitten. Frag noch einmal oder grenze die Frage ein.",
     answerRefused:
       "Diese Frage wurde vom Sicherheitsfilter abgelehnt. Formuliere sie als einfache Frage zum Inhalt.",
+    // refusal_source (backend 2026-09-15+): which safeguard fired
+    promptGuardLabel: "Prompt Guard",
+    answerRefusedHeuristic:
+      "Der Prompt-Injection-Schutz hat diese Frage vor der Suche blockiert, weil sie einem anweisungsähnlichen Muster entspricht. Es wurde nichts abgerufen. Formuliere sie als einfache Frage zum Inhalt.",
+    answerRefusedClassifier:
+      "Der Klassifikator des Prompt-Injection-Schutzes hat diese Frage markiert und vor der Suche blockiert. Es wurde nichts abgerufen. Das kann ein Fehlalarm sein. Formuliere die Frage um oder bitte einen Admin, den Prompt Guard anzupassen.",
+    answerRefusedModel:
+      "Der Assistent hat dies als anweisungsähnliche Anfrage und nicht als Frage zum Inhalt abgelehnt. Formuliere sie als einfache Frage.",
     rateLimited:
       "Das System verarbeitet gerade viele Anfragen. Bitte warte etwa {seconds} Sekunden und versuch es dann erneut.",
     rateLimitedNoTime:

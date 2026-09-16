@@ -67,6 +67,8 @@ export interface ChatMessage {
   // output-token cap. Persisted with the session in localStorage.
   refused?: boolean;
   truncated?: boolean;
+  // Which safeguard refused (backend 2026-09-15+; see answer-flags.ts).
+  refusalSource?: "heuristic" | "classifier" | "model";
   isStreaming?: boolean;
 }
 
