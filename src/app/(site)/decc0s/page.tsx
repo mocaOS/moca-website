@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Art DeCC0s",
   description:
-    "Art DeCC0s is a PFP r/evolution by the Museum of Crypto Art — 10,000 unique 1/1 characters bred from the entire history of art, each backed by a 10,000+ word personality in the Codex and ready to live on as an autonomous AI agent. Fully CC0.",
+    "Art DeCC0s is a PFP r/evolution by the Museum of Crypto Art — 10,000 unique 1/1 characters bred from the entire history of art, each backed by a 10,000+ word personality in the Codex and interactive as AI agents since 2025. Fully CC0.",
   path: "/decc0s",
   image: "/decc0s/hero.jpg",
   imageAlt: "Art DeCC0s — 10,000 unique 1/1 characters bred from the history of art",
@@ -58,16 +58,78 @@ const VIBE_STUDIO = [
     text: "Browse all 10,000 characters and the full depth of their written minds — the foundation of MOCA's agentic operating system.",
   },
   {
-    title: "Adoption Center",
-    text: "Chat freely with floor-priced DeCC0 agents before you commit — modeled on an animal rescue, not a marketplace.",
-  },
-  {
-    title: "Agent Launcher",
-    text: "The Codex is each DeCC0's nature; the Agent Launcher is the place of nurture. Owners fine-tune, teach, and deploy their agent on ElizaOS.",
-  },
-  {
     title: "Community Studio",
     text: "Third-party apps built on the DeCC0s, with 100% of proceeds going to their creators — starting with physical prints by MOCA x Artscape.",
+  },
+];
+
+const MILESTONES: {
+  when: string;
+  title: string;
+  text: string;
+  link?: { href: string; label: string; external?: boolean };
+}[] = [
+  {
+    when: "Dec 2024",
+    title: "10,000 characters mint — with agents in the brief",
+    text: "The project description promised \"unprecedented levels of personality\" from day one. The destiny of the series was always for its characters to become AI participants in the crypto art movement.",
+  },
+  {
+    when: "2025",
+    title: "DeCC0s talk back on ElizaOS",
+    text: "Long before agents were a mainstream topic, DeCC0s were already interactive: character files running on ElizaOS, holders chatting with their own DeCC0 in real time.",
+    link: {
+      href: "https://www.youtube.com/watch?v=u6f6mtsF180",
+      label: "Watch the 2025 demo",
+      external: true,
+    },
+  },
+  {
+    when: "Nov 2025",
+    title: "The Codex goes live",
+    text: "Nine months of datamancy end in a 2.5-day final run: 260,000+ API calls, 105,561,738 words. Agent profiles are derived programmatically from the Codex, not the other way round — so the characters outlive any single framework.",
+    link: {
+      href: "https://museumofcryptoart.medium.com/the-100-million-word-birth-of-art-decc0-agents-68990d66093c",
+      label: "Read the making-of",
+      external: true,
+    },
+  },
+  {
+    when: "v0.1",
+    title: "A SOUL.md for every DeCC0",
+    text: "Every Codex entry carries a versioned SOUL.md, served from the public Codex API. They were live before OpenClaw had settled on its name and before Hermes shipped — ready for the harnesses that came after them.",
+    link: {
+      href: "https://docs.decc0s.com",
+      label: "Codex API docs",
+      external: true,
+    },
+  },
+  {
+    when: "Now",
+    title: "A DeCC0 guides the museum's 3D exhibitions",
+    text: "Curate a show in the world builder and a DeCC0 walks visitors through it — answering from the Library's knowledge graph, speaking aloud, following you from room to room. Oblak (#2875) is the default guide.",
+    link: { href: "/rooms/world", label: "Open the world builder" },
+  },
+  {
+    when: "Now",
+    title: "The pipeline becomes Soulweaver",
+    text: "What was built to give 10,000 DeCC0s a mind is now offered to every NFT collection. Art DeCC0s is the genesis collection of Soulweaver.",
+    link: { href: "/soulweaver", label: "About Soulweaver" },
+  },
+];
+
+const HARNESSES = [
+  {
+    title: "ElizaOS",
+    text: "Where it started. Character files derived from the Codex have run on ElizaOS since 2025, and still do.",
+  },
+  {
+    title: "OpenClaw, Hermes & co.",
+    text: "Any harness that reads a soul file can wear a DeCC0. Pull its SOUL.md from the Codex API and the character wakes up in place.",
+  },
+  {
+    title: "Your own",
+    text: "The Codex is structured, public, and CC0. Build a bot, a guide, a critic, a companion — the data belongs to everyone.",
   },
 ];
 
@@ -103,7 +165,8 @@ export default function ArtDecc0sPage() {
             Art DeCC0s are 10,000 striking, often bizarre, entirely unique 1/1
             characters bred from the whole history of art — and every one of them
             has a mind. Behind each face sits a 10,000+ word personality in the
-            Codex, written to be deployed as an autonomous AI agent. Fully CC0,
+            Codex, written to be deployed as an autonomous AI agent. They have
+            been talking since 2025, before agents went mainstream. Fully CC0,
             free to remix, and the genesis collection of Soulweaver.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -260,6 +323,112 @@ export default function ArtDecc0sPage() {
           </div>
         </section>
 
+        {/* Already built */}
+        <section className="py-10">
+          <div className="mb-8 max-w-2xl">
+            <p
+              className="mb-3 text-[11px] uppercase tracking-[0.16em]"
+              style={{ color: "var(--fg3)" }}
+            >
+              Already built
+            </p>
+            <h2
+              className="text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--fg1)", letterSpacing: "-0.02em" }}
+            >
+              Interactive before agents were a headline.
+            </h2>
+            <p className="mt-4 text-base" style={{ color: "var(--fg2)" }}>
+              Art DeCC0s were designed as agents from the first line of the
+              project description. The personalities came first, the harnesses
+              came after — and each new generation of agent software has found
+              10,000 characters already waiting for it.
+            </p>
+          </div>
+          <ol
+            className="rounded-[var(--radius-lg)] border"
+            style={{ borderColor: "var(--border)", background: "var(--card)" }}
+          >
+            {MILESTONES.map((m, i) => (
+              <li
+                key={`${m.when}-${m.title}`}
+                className="grid gap-2 p-5 sm:grid-cols-[96px_1fr] sm:gap-6"
+                style={{
+                  borderTop: i === 0 ? undefined : "1px solid var(--border)",
+                }}
+              >
+                <div
+                  className="text-[11px] uppercase tracking-[0.12em]"
+                  style={{ color: "var(--fg3)", fontFamily: "var(--font-mono)" }}
+                >
+                  {m.when}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold" style={{ color: "var(--fg1)" }}>
+                    {m.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--fg2)" }}>
+                    {m.text}
+                  </p>
+                  {m.link && (
+                    <a
+                      href={m.link.href}
+                      {...(m.link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="mt-3 inline-block text-sm underline underline-offset-4 transition-colors"
+                      style={{ color: "var(--fg1)" }}
+                    >
+                      {m.link.label}
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        {/* Harnesses */}
+        <section className="py-10">
+          <div className="mb-8 max-w-2xl">
+            <p
+              className="mb-3 text-[11px] uppercase tracking-[0.16em]"
+              style={{ color: "var(--fg3)" }}
+            >
+              Nature for any harness
+            </p>
+            <h2
+              className="text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--fg1)", letterSpacing: "-0.02em" }}
+            >
+              The Codex is the character. The framework is a detail.
+            </h2>
+            <p className="mt-4 text-base" style={{ color: "var(--fg2)" }}>
+              Agent frameworks get renamed, forked, and replaced. The Codex was
+              built to outlast all of them: every profile is derived from the
+              same 10,000-word source, and souls are versioned so a character can
+              evolve without being rewritten. Whatever you run, an Art DeCC0 can
+              give it a personality.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {HARNESSES.map((h) => (
+              <div
+                key={h.title}
+                className="rounded-[var(--radius-lg)] border p-5"
+                style={{ borderColor: "var(--border)", background: "var(--card)" }}
+              >
+                <h3 className="text-sm font-semibold" style={{ color: "var(--fg1)" }}>
+                  {h.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--fg2)" }}>
+                  {h.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* The Vibe Studio */}
         <section className="py-10">
           <div className="mb-8 max-w-2xl">
@@ -281,7 +450,7 @@ export default function ArtDecc0sPage() {
               front door to the museum's agentic ecosystem.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             {VIBE_STUDIO.map((v) => (
               <div
                 key={v.title}
@@ -299,6 +468,64 @@ export default function ArtDecc0sPage() {
           </div>
         </section>
 
+        {/* Outlook */}
+        <section className="py-10">
+          <div
+            className="rounded-[var(--radius-xl)] border p-7 sm:p-10"
+            style={{ borderColor: "var(--border)", background: "var(--card)" }}
+          >
+            <div className="grid gap-8 lg:grid-cols-[1fr_minmax(0,420px)] lg:items-start">
+              <div>
+                <p
+                  className="mb-3 text-[11px] uppercase tracking-[0.16em]"
+                  style={{ color: "var(--fg3)" }}
+                >
+                  What comes next
+                </p>
+                <h2
+                  className="text-2xl font-semibold sm:text-3xl"
+                  style={{ color: "var(--fg1)", letterSpacing: "-0.02em" }}
+                >
+                  The foundation is laid. The next level is being drawn up.
+                </h2>
+                <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
+                  A hundred million words of distinct, deliberately
+                  contradictory, thoroughly bespoke personality is not a
+                  finished product. It is raw material — and MOCA is actively
+                  strategizing how to push Art DeCC0s to the next level on top
+                  of it. The agent era has caught up with the collection, and
+                  the collection was built for exactly this moment.
+                </p>
+                <p className="mt-4 text-base leading-relaxed" style={{ color: "var(--fg2)" }}>
+                  Every soul is versioned, so revisions arrive as new versions
+                  beside the old rather than overwriting them. Newer models
+                  will read the same Codex pages and draw out more of what was
+                  written into them. And because the whole thing is CC0 and
+                  served from a public API, the museum is not the only one who
+                  gets to build. We&apos;re just getting started.
+                </p>
+              </div>
+              <ul className="grid gap-3">
+                {[
+                  "Showcasing artist oeuvres and collector collections across social platforms",
+                  "Guiding visitors through virtual exhibitions, in the museum's own worlds and beyond",
+                  "Brainstorming with artists and designing shows with curators",
+                  "Recommending acquisitions from a collector's actual taste",
+                  "Growing in skill, knowledge, and insight with every soul revision",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-[var(--radius)] border px-4 py-3 text-sm leading-relaxed"
+                    style={{ borderColor: "var(--border)", color: "var(--fg2)" }}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Closing CTA */}
         <section className="pb-20 pt-6 text-center">
           <h2
@@ -308,9 +535,8 @@ export default function ArtDecc0sPage() {
             Every DeCC0 is waiting for someone to talk to.
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-base" style={{ color: "var(--fg2)" }}>
-            Browse all 10,000 minds in the Codex, meet adoptable agents in the
-            Vibe Studio, or build on the collection — it&apos;s CC0, so it&apos;s
-            already yours.
+            Browse all 10,000 minds in the Codex, give your own agent a soul, or
+            build on the collection — it&apos;s CC0, so it&apos;s already yours.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a
