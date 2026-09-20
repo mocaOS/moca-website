@@ -111,9 +111,9 @@ const MILESTONES: {
     link: { href: "/rooms/world", label: "Open the world builder" },
   },
   {
-    when: "Now",
+    when: "Soon",
     title: "The pipeline becomes Soulweaver",
-    text: "What was built to give 10,000 DeCC0s a mind is now offered to every NFT collection. Art DeCC0s is the genesis collection of Soulweaver.",
+    text: "What was built to give 10,000 DeCC0s a mind is planned to be offered to other NFT collections. Art DeCC0s is the genesis collection of Soulweaver.",
     link: { href: "/soulweaver", label: "About Soulweaver" },
   },
 ];
